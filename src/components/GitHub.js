@@ -7,7 +7,7 @@ function GitHub(props) {
     const [limit, setLimit] = useState(5)
     useEffect(() => {
         fetchData()
-    }, [])
+    })
 
     const fetchData = async() => {
         const result = await axios('https://api.github.com/users/nnikolov-dev/events')
@@ -22,9 +22,11 @@ function GitHub(props) {
     const getPayload = (type, payload) => {
         switch(type) {
             case 'CreateEvent':
-                return `Created a new ${payload.ref_type} ${payload.ref ? ` @ ${payload.ref}` : ''}` 
+                return `Created a new ${payload.ref_type} ${payload.ref ? ` @ ${payload.ref}` : ''}`
+            case 'DeleteEvent':
+                return `Deleted a ${payload.ref_type} ${payload.ref ? ` @ ${payload.ref}` : ''}`
             case 'GollumEvent':
-                    return `Updated the ${payload.pages[0].page_name} wiki page` 
+                return `Updated the ${payload.pages[0].page_name} wiki page` 
             case 'PushEvent':
                 return payload.commits[0].message
             case 'ForkEvent':
@@ -38,6 +40,7 @@ function GitHub(props) {
 
     const EVENTS_ICONS = []
     EVENTS_ICONS['CreateEvent'] = 'icon fa-plus'
+    EVENTS_ICONS['DeleteEvent'] = 'icon fa-times'
     EVENTS_ICONS['GollumEvent'] = 'icon fa-file-text-o'
     EVENTS_ICONS['PushEvent'] = 'icon fa-github'
     EVENTS_ICONS['ForkEvent'] = 'icon fa-code-fork'

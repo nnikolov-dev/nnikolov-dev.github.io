@@ -64,7 +64,7 @@ class HomeIndex extends React.Component {
                         <h2>Get In Touch</h2>
                         <div className="row">
                             <div className="8u 12u$(small)">
-                                <a href="#" className="button">View my CV</a>
+                                <a href="/resume" className="button">View my CV</a>
                             </div>
                             <div className="4u 12u$(small)">
                                 <ul className="labeled-icons">
