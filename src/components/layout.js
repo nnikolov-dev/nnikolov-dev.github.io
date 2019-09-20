@@ -2,7 +2,7 @@ import React from 'react'
 import '../assets/scss/main.scss'
 
 import Header from './Header'
-import ScrollPercentage from './ScrollPercentage'
+import {ScrollPercentage} from './ScrollPercentage'
 
 class Template extends React.Component {
     render() {

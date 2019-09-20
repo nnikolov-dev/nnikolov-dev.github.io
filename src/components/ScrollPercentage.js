@@ -1,32 +1,24 @@
 import React, {createContext, useEffect, useState} from 'react'
 
-const ScrollContext = createContext()
+const ScrollPercentageContext = createContext()
 
 function ScrollPercentage(props) {
+    const defaultValue = props.defaultValue ? props.defaultValue : 0
     const [percentage, setPercentage] = useState(null)
     const handleScroll = (e) => {
         const current = e.target.scrollingElement.scrollTop
         const max = e.target.scrollingElement.scrollTopMax
-        const zoom = 100+(current/max)*100
-        console.log(zoom)
+        const zoom = defaultValue + (current / max) * 100
         setPercentage(zoom)
     }
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
     })
     return (
-        <ScrollContext.Consumer value={percentage}>
-            <div>
-                <Display />
-            </div>
-        </ScrollContext.Consumer>
+        <ScrollPercentageContext.Provider value={percentage}>
+            {props.children}
+        </ScrollPercentageContext.Provider>
     )
 }
 
-function Display(props) {
-    return(
-        <b>1</b>
-    )
-}
-
-export default ScrollPercentage
+export {ScrollPercentage, ScrollPercentageContext}

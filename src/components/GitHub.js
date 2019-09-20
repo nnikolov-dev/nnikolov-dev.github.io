@@ -7,7 +7,7 @@ function GitHub(props) {
     const [limit, setLimit] = useState(5)
     useEffect(() => {
         fetchData()
-    })
+    }, [])
 
     const fetchData = async() => {
         const result = await axios('https://api.github.com/users/nnikolov-dev/events')
@@ -51,7 +51,7 @@ function GitHub(props) {
             <table className="table-wrapper">
                 <tbody>
                     {data ? data.slice(0, limit).map((activity) => (
-                        <tr>
+                        <tr key={activity.id}>
                             <td>
                                 <i className={EVENTS_ICONS[activity.type]}/>
                             </td>
