@@ -1,8 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Starter - Strata by HTML5 UP",
-    author: "Hunter Chang",
-    description: "A Gatsby.js Starter based on Strata by HTML5 UP"
+    title: "nnikolov-dev",
+    author: "Nikita Nikolov",
+    description: "Nikita Nikolov's personal portfolio",
+    attributes: ["software developer", "ai enthusiast", "freelancer"],
+    github: "nnikolov-dev",
+    linkedIn: "nikita-nikolov-45136618b",
+    email: "nn00317@surrey.ac.uk",
+    contact: ["University of Surrey", "United Kingdom"]
   },
   plugins: [
     'gatsby-plugin-react-helmet',
