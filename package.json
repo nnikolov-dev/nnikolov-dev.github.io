@@ -19,7 +19,8 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-images": "^1.0.0",
-    "react-markdown": "^4.2.2"
+    "react-markdown": "^4.2.2",
+    "scroll-percentage-react": "^1.0.1"
   },
   "keywords": [
     "gatsby"

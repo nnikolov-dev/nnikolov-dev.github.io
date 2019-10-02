@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment'
 
@@ -9,7 +9,7 @@ function GitHub(props) {
         fetchData()
     }, [])
 
-    const fetchData = async() => {
+    const fetchData = async () => {
         const result = await axios('https://api.github.com/users/nnikolov-dev/events')
         setData(result.data)
         console.log(result.data)
@@ -20,13 +20,13 @@ function GitHub(props) {
     }
 
     const getPayload = (type, payload) => {
-        switch(type) {
+        switch (type) {
             case 'CreateEvent':
                 return `Created a new ${payload.ref_type} ${payload.ref ? ` @ ${payload.ref}` : ''}`
             case 'DeleteEvent':
                 return `Deleted a ${payload.ref_type} ${payload.ref ? ` @ ${payload.ref}` : ''}`
             case 'GollumEvent':
-                return `Updated the ${payload.pages[0].page_name} wiki page` 
+                return `Updated the ${payload.pages[0].page_name} wiki page`
             case 'PushEvent':
                 return payload.commits[0].message
             case 'ForkEvent':
@@ -46,14 +46,14 @@ function GitHub(props) {
     EVENTS_ICONS['ForkEvent'] = 'icon fa-code-fork'
     EVENTS_ICONS['PullRequestEvent'] = 'icon fa-question-circle-o'
 
-    return(
-        <>
-            <table className="table-wrapper">
+    return (
+        <div className="table-wrapper">
+            <table>
                 <tbody>
                     {data ? data.slice(0, limit).map((activity) => (
                         <tr key={activity.id}>
                             <td>
-                                <i className={EVENTS_ICONS[activity.type]}/>
+                                <i className={EVENTS_ICONS[activity.type]} />
                             </td>
                             <td>
                                 <a
@@ -74,8 +74,8 @@ function GitHub(props) {
                     )) : null}
                 </tbody>
             </table>
-            {data ? <span id="table-footer" onClick={incLimit}>Load More</span> : null }
-        </>
+            {data ? <span id="table-footer" onClick={incLimit}>Load More</span> : null}
+        </div>
     )
 }
 
