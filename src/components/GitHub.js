@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment'
 
-function GitHub(props) {
+export default ({account}) => {
     const [data, setData] = useState(null)
     const [limit, setLimit] = useState(5)
     useEffect(() => {
@@ -10,9 +10,8 @@ function GitHub(props) {
     }, [])
 
     const fetchData = async () => {
-        const result = await axios('https://api.github.com/users/nnikolov-dev/events')
+        const result = await axios(`https://api.github.com/users/${account}/events`)
         setData(result.data)
-        console.log(result.data)
     }
 
     const incLimit = () => {
@@ -78,5 +77,3 @@ function GitHub(props) {
         </div>
     )
 }
-
-export default GitHub

@@ -29,7 +29,7 @@ export default ({data}) => (
 
             <section id="two">
                 <h2><i className="icon fa-github"></i> Activity</h2>
-                <GitHub />
+                <GitHub account={data.site.siteMetadata.github} />
             </section>
 
             <section id="three">
@@ -59,6 +59,7 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
+        github
         email
         contact
       }
