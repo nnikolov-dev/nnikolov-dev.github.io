@@ -5,9 +5,11 @@ export default () => {
     const data = useStaticQuery(
         graphql`
           query {
-            site {
-              siteMetadata {
-                attributes
+            allAttributesJson {
+              edges {
+                node {
+                  title
+                }
               }
             }
           }
@@ -18,7 +20,7 @@ export default () => {
             <div className="inner">
                 <h1>
                     <strong>nnikolov-dev</strong>
-                    {data.site.siteMetadata.attributes.reverse().map((attribute) => (<><br/>{attribute}</>))}
+                    {data.allAttributesJson.edges.map((edge) => (<><br/>{edge.node.title}</>))}
                 </h1>
             </div>
             <Footer />

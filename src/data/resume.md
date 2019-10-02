@@ -1,7 +1,8 @@
 ---
 title: "Resume"
 date: "2019-10-02"
----
+type: "cv"
+--- 
 * ### Profile
   A second-year Computer Science undergraduate seeking a 12-month placement. Passionate and ready to acquire new knowledge and hone technical skills, by contributing to a company.
     * Programming Languages

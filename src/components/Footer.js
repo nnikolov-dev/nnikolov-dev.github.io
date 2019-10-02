@@ -4,18 +4,21 @@ import { useStaticQuery, graphql } from "gatsby"
 export default () => {
     const data = useStaticQuery(
         graphql`
-          query {
-            site {
-              siteMetadata {
+        query {
+          allDataJson {
+            edges {
+              node {
                 github
-                linkedIn
                 email
+                contact
+                linkedIn
               }
             }
           }
-        `
+        }
+      `
     )
-    const {github, linkedIn, email} = data.site.siteMetadata
+    const {github, linkedIn, email} = data.allDataJson.edges[0].node
     return (
         <div id="footer">
             <div className="inner">
