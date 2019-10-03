@@ -1,22 +1,18 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from '../components/layout'
 import GitHub from '../components/GitHub'
 import Project from '../components/Project'
 
 
-export default ({data}) => (
+export default ({ data }) => (
     <Layout>
 
         <div id="main">
             <section id="one">
                 <h2>Open-Sourced</h2>
                 <div className="projects">
-                    {data.allProjectsJson.edges.map((edge) => {
-                        const image = require(`../data/images/projects/${edge.node.image}`)
-                        console.log(`../data/images/projects/${edge.node.image}`)
-                        return(<Project edge={edge} image={image} />)
-                    })}
+                    {data.allProjectsJson.edges.map((edge) => (<Project edge={edge} />))}
                 </div>
             </section>
 
@@ -36,7 +32,7 @@ export default ({data}) => (
                             <li>
                                 <h3 className="icon fa-envelope-o"><span className="label">Email</span></h3>
                                 {data.allDataJson.edges[0].node.email}<br />
-                                {data.allDataJson.edges[0].node.contact.reverse().map((contact) => (<>{contact}<br/></>))}
+                                {data.allDataJson.edges[0].node.contact.reverse().map((contact) => (<>{contact}<br /></>))}
                             </li>
                         </ul>
                     </div>

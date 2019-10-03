@@ -1,10 +1,9 @@
 ---
 title: "Resume"
-date: "2019-10-02"
 type: "cv"
 --- 
 * ### Profile
-  A second-year Computer Science undergraduate seeking a 12-month placement. Passionate and ready to acquire new knowledge and hone technical skills, by contributing to a company.
+  A placemenet-year Computer Science undergraduate student at the University of Surrey. Passionate and ready to acquire new knowledge and hone technical skills.
     * Programming Languages
       * Python
       * JavaScript / TypeScript
@@ -14,10 +13,10 @@ type: "cv"
       * PHP
       * Ruby
       * Lua
-    * Web Development using frontend libraries such as
+    * Web Development using frontend libraries
       * ReactJS
       * AngularJS
-    * Web Development using fullstack frameworks such as
+    * Web Development using fullstack frameworks
       * ExpressJS
       * Laravel
       * Django

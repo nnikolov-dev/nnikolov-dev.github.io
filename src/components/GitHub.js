@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment'
+import Skeleton from 'react-loading-skeleton'
 
-export default ({account}) => {
+export default ({ account }) => {
     const [data, setData] = useState(null)
     const [limit, setLimit] = useState(5)
     useEffect(() => {
@@ -70,7 +71,7 @@ export default ({account}) => {
                                 {moment(activity.created_at).fromNow()}
                             </td>
                         </tr>
-                    )) : null}
+                    )) : <Skeleton height={250} />}
                 </tbody>
             </table>
             {data ? <span id="table-footer" onClick={incLimit}>Load More</span> : null}
