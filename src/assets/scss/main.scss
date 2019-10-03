@@ -1097,6 +1097,12 @@
 		}
 	}
 
+
+/* Skeleton */
+	.skeleton {
+		background: _palette(border);
+	}
+
 /* Poptrox */
 
 	@include keyframes('spin') {

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Skeleton from 'react-loading-skeleton'
 
 export default ({ edge }) => {
     const { title, github } = edge.node
@@ -19,18 +18,19 @@ export default ({ edge }) => {
 
     return (
         <div className="projects-item">
-            {repo ? <img src={require(`../assets/images/projects/${edge.node.image}`)} className="project-left" /> : <div className="project-left"><Skeleton width={200} height={200} /></div>}
+            <img src={require(`../assets/images/projects/${edge.node.image}`)} className="project-left" />
             <div className="project-right">
                 <h3>{title}</h3>
                 <div className="badges">
-                    {languages ? languages.map((language) => (<span className="badge">{language}</span>)) : <Skeleton width={600} height={50} />}
+                    {languages ? languages.map((language) => (<span className="badge">{language}</span>)) : (<span>...</span>)}
                 </div>
                 <p>
-                    {repo ? repo.description : <Skeleton width={600} height={150} />}
+                    {repo ? repo.description : (<span>...</span>)}
                 </p>
                 <div className="project-links">
                     <a href={`https://github.com/${github}`} alt="GitHub Repository" target="_blank" rel="noopener noreferrer">
-                        GitHub Repo</a>
+                        GitHub Repo
+                    </a>
                     <a href="!#" alt="Documentation">
                         Documentation
                     </a>
