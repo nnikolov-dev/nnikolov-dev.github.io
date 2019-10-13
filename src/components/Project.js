@@ -31,7 +31,7 @@ export default ({ edge }) => {
                         GitHub Repo
                     </a>
                     {demo
-                        ? (<a href={demo} alt="Demo">Demo</a>)
+                        ? (<a href={demo} alt={`${title} Demo`} target="_blank" rel="noopener noreferrer">Demo</a>)
                         : null}
                 </div>
             </div>
