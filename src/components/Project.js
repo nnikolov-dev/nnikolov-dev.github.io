@@ -2,23 +2,22 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export default ({ edge }) => {
-    const { title, github } = edge.node
+    const { title, github, demo } = edge.node
     const [repo, setRepo] = useState(null)
     const [languages, setLanguages] = useState(null)
     useEffect(() => {
+        const fetchData = async () => {
+            const repo = await axios(`https://api.github.com/repos/${github}`)
+            const languages = await axios(`https://api.github.com/repos/${github}/languages`)
+            setRepo(repo.data)
+            setLanguages(Object.keys(languages.data))
+        }
         fetchData()
-    }, [])
-
-    const fetchData = async () => {
-        const repo = await axios(`https://api.github.com/repos/${github}`)
-        const languages = await axios(`https://api.github.com/repos/${github}/languages`)
-        setRepo(repo.data)
-        setLanguages(Object.keys(languages.data))
-    }
+    }, [github])
 
     return (
         <div className="projects-item">
-            <img src={require(`../assets/images/projects/${edge.node.image}`)} className="project-left" />
+            <img src={require(`../assets/images/projects/${edge.node.image}`)} alt={title} className="project-left" />
             <div className="project-right">
                 <h3>{title}</h3>
                 <div className="badges">
@@ -31,9 +30,9 @@ export default ({ edge }) => {
                     <a href={`https://github.com/${github}`} alt="GitHub Repository" target="_blank" rel="noopener noreferrer">
                         GitHub Repo
                     </a>
-                    <a href="!#" alt="Documentation">
-                        Documentation
-                    </a>
+                    {demo
+                        ? (<a href={demo} alt="Demo">Demo</a>)
+                        : null}
                 </div>
             </div>
         </div>

@@ -5,13 +5,13 @@ export default ({ account }) => {
     const [data, setData] = useState(null)
     const [limit, setLimit] = useState(5)
     useEffect(() => {
-        fetchData()
-    }, [])
+        const fetchData = async () => {
+            const result = await axios(`https://api.github.com/users/${account}/events`)
+            setData(result.data)
+        }
 
-    const fetchData = async () => {
-        const result = await axios(`https://api.github.com/users/${account}/events`)
-        setData(result.data)
-    }
+        fetchData()
+    }, [account])
 
     const incLimit = () => {
         setLimit(limit + 5)

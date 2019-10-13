@@ -52,6 +52,7 @@ export const data = graphql`
           title
           github
           image
+          demo
         }
       }
     }
