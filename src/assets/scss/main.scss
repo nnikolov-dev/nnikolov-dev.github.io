@@ -1589,14 +1589,25 @@
 		/* Projects */
 		.projects {
 			.projects-item {
+				flex-direction: column;
 				.project-left {
-					max-width: 35%;
+					max-width: 50%;
+					width: 100%;
 				}
 				.project-right {
 					margin-top: 1rem;
 				}
 			}
 		}
+
+
+		/* Badges */
+		.badges {
+			.badge {
+				margin-bottom: 0.5rem;
+			}
+		}
+
 
 		/* Contact Details */
 		.contact-details {
