@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{212:function(e,n,t){"use strict";t.r(n);var a=t(0),i=t.n(a),l=t(210);n.default=function(){return i.a.createElement(l.a,null,i.a.createElement("div",{id:"main"},i.a.createElement("h1",null,"Oh noes"),i.a.createElement("p",null,"This page doesn't exist yet :(. Now what are the odds of that hapenning?")))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-3b528f74792323e7c618.js.map
