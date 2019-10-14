@@ -730,7 +730,7 @@
 	}
 
 	#table-footer:hover {
-		color: _pallete('accent1', 'bg');
+		color: _pallete(accent1, bg);
 	}
 
 	table {
@@ -1030,20 +1030,10 @@
 		}
 
 		.project-left {
-			max-width: 30%;
-			flex: 0;
-			display: flex;
-			flex-direction: row;
-			justify-content: space-evenly;
-			align-content: space-around;
-			flex-wrap: wrap;
-			align-items: center;
-		}
-
-		.project-left {
 			flex: 1;
-			width: 100%;
-			height: auto;
+			max-width: 30%;
+			display: flex;
+			align-items: center;
 		}
 
 		.project-right {
@@ -1599,14 +1589,20 @@
 		/* Projects */
 		.projects {
 			.projects-item {
-				flex-direction: column;
 				.project-left {
-					max-width: 75%;
+					max-width: 35%;
 				}
 				.project-right {
 					margin-top: 1rem;
 				}
 			}
+		}
+
+		/* Contact Details */
+		.contact-details {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 1rem;
 		}
 			
 
@@ -1621,4 +1617,102 @@
 	.\34 u24 {
 		width: 100%;
 	}
+}
+
+@media (prefers-color-scheme: dark) {
+
+	body {
+		background: _palette(accent2, bg);
+	}
+
+	body, input, select, textarea {
+		color: _palette(accent2, fg);
+	}
+
+	a {
+		color: _palette(accent2, fg);
+
+		&:hover {
+			color: _palette(accent2, fg) !important;
+		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		color: _palette(accent2, fg-bold);
+	}
+
+	#table-footer:hover {
+		color: _pallete(accent2, bg);
+	}
+
+	table {
+		tbody {
+			tr {
+				border: solid 1px _palette(accent2, border);
+
+				&:nth-child(2n + 1) {
+					background-color: _palette(accent2, border-bg);
+				}
+			}
+		}
+
+		th {
+			color: _palette(accent2, fg-bold);
+		}
+
+		&.alt {
+			tbody {
+				tr {
+					td {
+						border: solid 2px _palette(accent2, border);
+					}
+				}
+			}
+		}
+	}
+
+	.badges {
+		.badge {
+			background: _palette(accent2, border);
+			color: _palette(accent2, fg);
+			border: 1px solid _palette(accent2, fg);
+		}
+	
+		.badge:hover {
+			background: _palette(accent2, fg);
+		}
+	}
+
+	#main {
+		> section {
+			border-top: solid 2px _palette(accent2, border);
+		}
+	}
+
+	.projects {
+		display: flex;
+		flex-direction: column;
+		
+		.projects-item {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 3rem;
+		}
+
+		.project-left {
+			opacity: 0.7;
+			transition: 0.1s ease-in-out;
+		}
+
+		.project-left:hover {
+			opacity: 1;
+		}
+	}
+
+	#header {
+		background-image:		url('images/overlay.png'),			url('../images/bg_dark.jpg');
+	}
+
 }
